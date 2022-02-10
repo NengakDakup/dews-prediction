@@ -38,9 +38,9 @@ app.use("/", root);
 app.use("/admin", admin);
 
 // Connect to the mongodb
-mongoose.connect(process.env.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("MongoDB Connected"))
-    .catch((err) => console.log(err));
+// mongoose.connect(process.env.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log("MongoDB Connected"))
+//     .catch((err) => console.log(err));
 
 const port = process.env.PORT || 4000;
 
