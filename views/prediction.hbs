@@ -50,7 +50,9 @@
 ================================= -->
 
 <script>
-    document.querySelector('.predict-btn').addEventListener('click', () => {
+    let btn = document.querySelector('.predict-btn');
+    btn.addEventListener('click', () => {
+        btn.innerText = 'Loading...';
         let year = document.querySelector('.year').value;
         let state = "{{state}}";
 
@@ -61,8 +63,8 @@
             return alert("Please Enter a Year Not Greater Than 2030");
         } else {
             let data = {
-                year: year,
-                state: state.toLowerCase()
+                year: year * 1,
+                state: state.toUpperCase()
             };
 
             fetch("https://dewsapp.herokuapp.com/dews/pred/", {
@@ -72,8 +74,20 @@
                 },
                 body: JSON.stringify(data)
             }).then(res => {
-                console.log("Request complete! response:", res);
-            });
+                return res.json()
+            }).then(data => {
+                document.querySelector('.state_res').innerText = state;
+                document.querySelector('.year_res').innerText = data.year;
+                document.querySelector('.drought_index').innerText = data.drought_index;
+                document.querySelector('.ocean_temp').innerText = data.ocean_temperature;
+                document.querySelector('.climate_dir').innerText = data.climate_direction;
+                
+                $('#resultModal').modal('show')
+                btn.innerHTML = '<i class="la la-plus mr-2"></i>Run Prediction';
+            }).catch(err => {
+                alert('An Error Occured Please Try Again')
+                btn.innerHTML = '<i class="la la-plus mr-2"></i>Run Prediction'
+            })
         }
     })
 </script>
