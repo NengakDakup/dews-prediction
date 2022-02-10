@@ -66,16 +66,13 @@ router.get("/prediction", (req, res) => {
   });
 });
 
-// @route   /gallery
-// @desc    Returns the Gallery Page
+// @route   /team
+// @desc    Returns the team Page
 // @access  public
-router.get("/gallery", async (req, res) => {
-  let images = fetchImages();
-  res.render("gallery", {
-    title: "DEWS | Our Gallery",
-    data,
-    page: "gallery",
-    images
+router.get("/team", async (req, res) => {
+  res.render("team", {
+    title: "DEWS | Our team",
+    page: "team",
   });
 });
 
@@ -90,14 +87,13 @@ router.get("/contact", (req, res) => {
   });
 });
 
-// @route   /support
-// @desc    Returns the Support Page
+// @route   /faq
+// @desc    Returns the faq Page
 // @access  public
-router.get("/support", (req, res) => {
-  res.render("support", {
-    title: "DEWS | Support Us",
-    page: "support",
-    data: data,
+router.get("/faq", (req, res) => {
+  res.render("faq", {
+    title: "DEWS | faq",
+    page: "faq",
   });
 });
 
