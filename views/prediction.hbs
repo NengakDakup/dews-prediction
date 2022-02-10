@@ -26,10 +26,10 @@
                         <form action="#" class="form-box ">
                             <div class="form-group mb-0">
                                 
-                                <input class="form-control mt-3" type="search" placeholder="Input The Year You want to predict for">
+                                <input type="number" min="1999" max="2030" class="form-control mt-3 year" placeholder="Input The Year You want to predict for">
                             </div>
                             <div class="form-group mb-0 mt-3">
-                                <a href="#" class="theme-btn gradient-btn shadow-none add-listing-btn-hide">
+                                <a href="#" class="theme-btn gradient-btn shadow-none add-listing-btn-hide predict-btn">
                                 <i class="la la-plus mr-2"></i>Run Prediction
                             </a>
                             </div>
@@ -49,6 +49,33 @@
     END HERO-WRAPPER AREA
 ================================= -->
 
-{{state}}
+<script>
+    document.querySelector('.predict-btn').addEventListener('click', () => {
+        let year = document.querySelector('.year').value;
+        let state = "{{state}}";
+
+
+        if(!year){
+            return alert("Please Enter a Valid Year");
+        } else if(year > 2030){
+            return alert("Please Enter a Year Not Greater Than 2030");
+        } else {
+            let data = {
+                "year": year,
+                "state": state
+            };
+
+            fetch("https://dewsapp.herokuapp.com/dews/pred/", {
+                method: "POST", 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            }).then(res => {
+                console.log("Request complete! response:", res);
+            });
+        }
+    })
+</script>
 
 {{> footer }}
