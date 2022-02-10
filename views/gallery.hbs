@@ -1,0 +1,49 @@
+{{> header }}
+
+<section class="page-banner">
+    <div class="image-layer lazy-image" data-bg="url('images/gallery/pix/IMG-20211119-WA0039.jpg')"></div>
+    <div class="bottom-rotten-curve alternate"></div>
+
+    <div class="auto-container">
+        <h1>Our Portfolio</h1>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/">Home</a></li>
+            <li class="active">Gallery</li>
+        </ul>
+    </div>
+
+</section>
+<!--End Banner Section -->
+
+<!-- Gallery Page Section -->
+<section class="gallery-page-section">
+    <div class="auto-container">
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <!--Filter-->
+
+
+            <div class="filter-list row">
+                {{#eachIndex images}}
+                    <div class="gallery-item-two mix all volunteer col-lg-4 col-md-6 col-sm-12">
+                        <div class="image-box">
+                            <figure class="image"><img class="lazy-image"
+                                    src="images/resource/image-spacer-for-validation.png" data-src="/images/gallery/pix/{{item}}"
+                                    alt=""></figure>
+                            <div class="overlay-box"><a href="/images/gallery/pix/{{item}}" class="lightbox-image"
+                                    data-fancybox="gallery"><span class="icon flaticon-cross-1"></span></a></div>
+                        </div>
+                    </div>
+
+                {{/eachIndex}}
+                <!-- Gallery Item Two -->
+                
+
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Gallery Page Section -->
+
+{{> footer }}

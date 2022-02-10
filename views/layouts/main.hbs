@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="TechyDevs">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/animated-headline.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/css/chosen.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!-- start per-loader -->
+<div class="loader-container">
+    <div class="loader-ripple">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- end per-loader -->
+{{{body}}}
+
+
+<!-- start back-to-top -->
+<div id="back-to-top">
+    <i class="la la-arrow-up" title="Go top"></i>
+</div>
+<!-- end back-to-top -->
+
+<!-- Modal -->
+<div class="modal fade modal-container login-form" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center mh-bg">
+                <h5 class="modal-title" id="loginModalTitle">Hey, Welcome back!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="la la-times-circle"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" class="form-box">
+                    <div class="input-box">
+                        <label class="label-text">Username or email</label>
+                        <div class="form-group">
+                            <span class="la la-user form-icon"></span>
+                            <input class="form-control form-control-styled" type="text" name="text" placeholder="Username or email address">
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label class="label-text">Password</label>
+                        <div class="form-group">
+                            <span class="la la-lock form-icon"></span>
+                            <input class="form-control form-control-styled" type="text" name="text" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="input-box d-flex align-items-center justify-content-between pb-4 user-action-meta">
+                        <div class="custom-checkbox">
+                            <input type="checkbox" id="keepMeSignedChb">
+                            <label for="keepMeSignedChb" class="font-size-14">Keep me signed in</label>
+                        </div>
+                        <a href="javascript:void(0)" class="margin-bottom-10px lost-pass-btn font-size-14">Lost Password?</a>
+                    </div>
+                    <div class="btn-box">
+                        <button type="submit" class="theme-btn gradient-btn w-100">
+                            <i class="la la-sign-in mr-1"></i> Login to Account
+                        </button>
+                        <p class="sub-text-box text-right pt-1 font-weight-medium font-size-14">
+                            New to DEWS? <a class="text-color-2 signup-btn" href="javascript:void(0)">Create account</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade modal-container signup-form" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center mh-bg-2">
+                <h5 class="modal-title" id="signUpModalTitle">Welcome! create your DEWS account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="la la-times-circle"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" class="form-box">
+                    <div class="input-box">
+                        <label class="label-text">Username</label>
+                        <div class="form-group">
+                            <span class="la la-user form-icon"></span>
+                            <input class="form-control form-control-styled" type="text" name="text" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label class="label-text">Email</label>
+                        <div class="form-group">
+                            <span class="la la-envelope form-icon"></span>
+                            <input class="form-control form-control-styled" type="email" name="text" placeholder="Email address">
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label class="label-text">Password</label>
+                        <div class="form-group">
+                            <span class="la la-lock form-icon"></span>
+                            <input class="form-control form-control-styled" type="text" name="text" placeholder="Enter password">
+                        </div>
+                        <p class="font-size-14 mt-n2">Your password must be at least 6 characters long and must contain letters, numbers and special characters. Cannot contain whitespace.</p>
+                    </div>
+
+                    <div class="btn-box">
+                        <button type="submit" class="theme-btn gradient-btn w-100">
+                            <i class="la la-user-plus mr-1"></i> Register Account
+                        </button>
+                        <p class="sub-text-box text-right pt-1 font-weight-medium font-size-14">
+                            Already on DEWS? <a class="text-color-2 login-btn" href="javascript:void(0)">Log in</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade modal-container recover-form" id="recoverModal" tabindex="-1" role="dialog" aria-labelledby="recoverModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center mh-bg">
+                <h5 class="modal-title" id="recoverModalTitle">Reset password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="la la-times-circle"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-size-15 font-weight-medium pb-3">
+                    Enter your username or email to reset your password.
+                    You will receive an email with instructions on how to reset your password. If you are experiencing problems
+                    resetting your password <a href="contact.html" class="text-color-2">contact us</a> or <a href="#" class="text-color-2">send us an email</a>
+                </p>
+                <form method="post" class="form-box">
+                    <div class="input-box">
+                        <label class="label-text">Username or email</label>
+                        <div class="form-group">
+                            <span class="la la-user form-icon"></span>
+                            <input class="form-control form-control-styled" type="text" name="text" placeholder="Username or email address">
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <button type="submit" class="theme-btn gradient-btn w-100">
+                            Get New Password <i class="la la-arrow-right ml-1"></i>
+                        </button>
+                        <p class="sub-text-box text-right pt-1 font-weight-medium font-size-14">
+                            Not a member? <a class="text-color-2 signup-btn" href="javascript:void(0)">Create account</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Template JS Files -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/animated-headline.js"></script>
+<script src="js/chosen.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/datedropper.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/jquery-rating.js"></script>
+<script src="js/tilt.jquery.min.js"></script>
+<script src="js/jquery-supperslides.min.js"></script>
+<script src="js/superslider-script.js"></script>
+<script src="js/jquery.lazy.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>

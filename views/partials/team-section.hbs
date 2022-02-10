@@ -1,0 +1,20 @@
+<!--Team Section-->
+<section class="team-section">
+    <div class="bottom-rotten-curve"></div>
+
+    <div class="auto-container">
+
+        <div class="sec-title centered">
+            <div class="sub-title">Meet Our Team</div>
+            <h2>Our Volunteers</h2>
+            <div class="text">These are the people that help make everything work!</div>
+        </div>
+
+        <div class="row clearfix">
+            {{#forEach data.team}}
+            {{> team-card }}
+            {{/forEach}}
+        </div>
+
+    </div>
+</section>

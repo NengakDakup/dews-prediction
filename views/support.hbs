@@ -1,0 +1,102 @@
+{{> header }}
+
+<section class="page-banner">
+    <div class="image-layer lazy-image" data-bg="url('images/gallery/pix/IMG-20211119-WA0039.jpg')"></div>
+    <div class="bottom-rotten-curve alternate"></div>
+
+    <div class="auto-container">
+        <h1>Support Us</h1>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/">Home</a></li>
+            <li class="active">Support</li>
+        </ul>
+    </div>
+
+</section>
+<!--End Banner Section -->
+
+<section class="donate-section">
+    <div class="auto-container">
+        <div class="tabs-box">
+            <div class="row clearfix">
+
+                <!--Title Column-->
+                <div class="title-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner">
+                        <h2>Please Make Your Donation</h2>
+                        <div class="text">Your Support Will go a Long way In helping us finance our activities.</div>
+                        <figure class="image-box"><img class="lazy-image error"
+                                src="/images/resource/donate-image-1.jpg" data-src="/images/resource/donate-image-1.jpg"
+                                alt="" data-was-processed="true"></figure>
+                                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                                    <input type="hidden" name="hosted_button_id" value="FEBW4XEVU7WCC" />
+                                    <input type="image" src="https://pics.paypal.com/00/s/ZTVlOGQ3MzYtZjQyMC00ODQzLTk0MjUtZDBhNmI1OTNhNjI0/file.PNG" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                    <img alt="" border="0" src="https://www.paypal.com/en_NG/i/scr/pixel.gif" width="1" height="1" />
+                                </form>
+
+
+                    </div>
+                </div>
+                <div class="title-column col-lg-6 col-md-12 col-sm-12">
+                    <p>You can also scan the QR Code below to make a donation</p>
+                    <img src="/images/QR Code.png">
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Contact Info Section-->
+<section class="contact-info-section">
+    <div class="auto-container">
+
+        <div class="sec-title centered">
+            <div class="sub-title">Contact Us</div>
+            <h2>Get In Touch</h2>
+        </div>
+
+        <div class="info-boxes">
+            <div class="row clearfix">
+                <!--Info Box-->
+                <div class="info-box col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+                        <div class="image-layer lazy-image" data-bg="url('/images/resource/contact-image-1.jpg')"></div>
+                        <div class="icon-box"><span class="flaticon-home-location-marker"></span></div>
+                        <h4>Our Location</h4>
+                        <ul>
+                            <li>{{data.location}}.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Info Box-->
+                <div class="info-box col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInUp" data-wow-delay="300ms">
+                        <div class="image-layer lazy-image" data-bg="url('/images/resource/contact-image-2.jpg')"></div>
+                        <div class="icon-box"><span class="flaticon-phone-call"></span></div>
+                        <h4>Phone Number</h4>
+                        <ul>
+                            <li><a href="tel:{{data.phone}}">{{data.phone}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Info Box-->
+                <div class="info-box col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInUp" data-wow-delay="600ms">
+                        <div class="image-layer lazy-image" data-bg="url('/images/resource/contact-image-3.jpg')"></div>
+                        <div class="icon-box"><span class="flaticon-email"></span></div>
+                        <h4>Email Address</h4>
+                        <ul>
+                            <li><a href="mailto:{{data.email}}">{{data.email}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{{> footer }}
