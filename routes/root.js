@@ -83,7 +83,6 @@ router.get("/contact", (req, res) => {
   res.render("contact", {
     title: "DEWS | Contact Us",
     page: "contact",
-    data: data,
   });
 });
 
