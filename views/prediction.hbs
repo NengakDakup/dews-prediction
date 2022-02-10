@@ -62,7 +62,7 @@
         } else {
             let data = {
                 year: year,
-                state: state
+                state: state.toLowerCase()
             };
 
             fetch("https://dewsapp.herokuapp.com/dews/pred/", {
