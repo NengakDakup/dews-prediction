@@ -61,8 +61,8 @@
             return alert("Please Enter a Year Not Greater Than 2030");
         } else {
             let data = {
-                "year": year,
-                "state": state
+                year: year,
+                state: state
             };
 
             fetch("https://dewsapp.herokuapp.com/dews/pred/", {
