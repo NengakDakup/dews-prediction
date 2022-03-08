@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const lgas = require('../json.json');
+
 const states = [
 'Yobe',
 'Jigawa',
@@ -22,6 +24,8 @@ const states = [
 'Benue',
 'Kastina',
 ]
+
+
 
 // @route   /
 // @desc    Returns the Home Page
@@ -59,10 +63,13 @@ router.get("/map", (req, res) => {
 // @access  public
 router.get("/prediction", (req, res) => {
   let state = req.query.state;
+  let list = lgas.filter(lga => lga.state.toLowerCase() === state.toLowerCase() )
+  console.log(list[0]);
   res.render("prediction", {
     title: "DEWS | Prediction",
     page: "prediction",
-    state
+    state,
+    list: list[0].lgas
   });
 });
 

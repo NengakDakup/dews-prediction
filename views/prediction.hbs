@@ -26,6 +26,15 @@
                         <form action="#" class="form-box ">
                             <div class="form-group mb-0">
                                 
+                                <select class="form-control" id="lga" aria-placeholder="Select the LGA">
+                                    <option name="select" default="true" value="select">Select An LGA</option>
+                                    {{#eachIndex  list}}
+                                        <option name="{{item}}">{{item}}</option>
+                                    {{/eachIndex }}
+                                </select>                             
+                            </div>
+                            <div class="form-group mb-0">
+                                
                                 <input type="number" min="1999" max="2030" class="form-control mt-3 year" placeholder="Input The Year You want to predict for">
                             </div>
                             <div class="form-group mb-0 mt-3">
@@ -55,6 +64,11 @@
         btn.innerText = 'Loading...';
         let year = document.querySelector('.year').value;
         let state = "{{state}}";
+        let lga = document.querySelector("#lga").value;
+
+        if(lga === "select" || !lga){
+            return alert("Please Select An LGA")
+        }
 
 
         if(!year){
@@ -64,7 +78,8 @@
         } else {
             let data = {
                 year: year * 1,
-                state: state.toUpperCase()
+                state: state.toUpperCase(),
+                lga: lga
             };
 
             fetch("https://dewsapp.herokuapp.com/dews/pred/", {
@@ -76,11 +91,15 @@
             }).then(res => {
                 return res.json()
             }).then(data => {
-                document.querySelector('.state_res').innerText = state;
-                document.querySelector('.year_res').innerText = data.year;
-                document.querySelector('.drought_index').innerText = data.drought_index;
-                document.querySelector('.ocean_temp').innerText = data.ocean_temperature;
-                document.querySelector('.climate_dir').innerText = data.climate_direction;
+                let modal_body = document.querySelector('.modal-body.pred');
+                const keys = Object.keys(data);
+                
+                keys.forEach((key, index) => {
+                    let el = `<p><strong style="color: #111;">${key.toString().toUpperCase()} : </strong><span class="state_res">${data[key].toString().toUpperCase()}</span></p>`;
+                    modal_body.innerHTML += el;
+                });
+
+                
                 
                 $('#resultModal').modal('show')
                 btn.innerHTML = '<i class="la la-plus mr-2"></i>Run Prediction';

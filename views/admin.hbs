@@ -1,0 +1,239 @@
+
+
+<!-- ================================
+    START DASHBOARD AREA
+================================= -->
+<section class="dashboard-wrap d-flex">
+    <ul class="navbar-nav dashboard-sidebar">
+        <li>
+            <span id="sidebar-close">
+                <i class="la la-times"></i>
+            </span>
+        </li>
+        <li>
+            <a class="sidebar-brand" href="index.html">
+                <h3>DEWS</h3>
+            </a>
+        </li>
+        <li class="sidebar-heading pt-3">Main</li>
+        <li class="nav-item active">
+            <a class="nav-link" href="dashboard.html">
+                <i class="la la-dashboard font-size-18 mr-1"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+         <li class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="la la-power-off font-size-18 mr-1"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+    <div class="dashboard-body d-flex flex-column">
+        <div class="dashboard-inner-body flex-grow-1">
+            <nav class="navbar navbar-expand bg-navbar dashboard-topbar mb-4">
+                <button id="sidebarToggleTop" class="btn rounded-circle mr-3">
+                    <i class="la la-bars"></i>
+                </button>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle after-none" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="la la-search"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
+                            <form class="search-box">
+                                <div class="input-group">
+                                    <label class="input-label mb-0">
+                                        <input type="text" class="form-control" placeholder="Search here...">
+                                    </label>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="la la-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                   
+                    
+                    <li class="nav-item dropdown border-left pl-3 ml-4">
+                        <a class="nav-link dropdown-toggle after-none" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="user-thumb user-thumb-sm position-relative">
+                                <img src="images/avatar-img.jpg" alt="author-image">
+                                <div class="status-indicator bg-success"></div>
+                            </div>
+                            <span class="ml-2 small font-weight-medium d-none d-lg-inline">Admin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right animated--grow-in py-2" aria-labelledby="userDropdown">
+                            
+                            <a class="dropdown-item text-color font-size-15" href="/">
+                                <i class="la la-power-off mr-2 text-gray font-size-18"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav><!-- end dashboard-topbar -->
+            <div class="container-fluid dashboard-inner-body-container">
+                <div class="breadcrumb-content d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="section-heading">
+                        <h2 class="sec__title font-size-24 mb-0">Howdy, Admin!</h2>
+                    </div>
+                    <ul class="list-items bread-list bread-list-2">
+                        <li><a href="/">Home</a></li>
+                        <li>Dashboard</li>
+                    </ul>
+                </div><!-- end breadcrumb-content -->
+                <div class="row">
+               
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-item dashboard-stat">
+                            <div class="card-content">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h2 class="card-title font-size-40">10</h2>
+                                        <p class="card-sub font-size-18 line-height-24">Active Predictions</p>
+                                    </div>
+                                    <div class="col-auto font-size-60">
+                                        <i class="la la-map-marked text-primary"></i>
+                                    </div>
+                                </div><!-- end row -->
+                            </div><!-- end card-content -->
+                        </div><!-- end card-item -->
+                    </div><!-- end col-lg-3 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-item dashboard-stat">
+                            <div class="card-content">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h2 class="card-title font-size-40">1,020</h2>
+                                        <p class="card-sub font-size-18 line-height-24">Total Predictions</p>
+                                    </div>
+                                    <div class="col-auto font-size-60">
+                                        <i class="la la-line-chart text-success"></i>
+                                    </div>
+                                </div><!-- end row -->
+                            </div><!-- end card-content -->
+                        </div><!-- end card-item -->
+                    </div><!-- end col-lg-3 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-item dashboard-stat">
+                            <div class="card-content">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h2 class="card-title font-size-40">1015</h2>
+                                        <p class="card-sub font-size-18 line-height-24">Correct Predictions</p>
+                                    </div>
+                                    <div class="col-auto font-size-60">
+                                        <i class="la la-star-o text-info"></i>
+                                    </div>
+                                </div><!-- end row -->
+                            </div><!-- end card-content -->
+                        </div><!-- end card-item -->
+                    </div><!-- end col-lg-3 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-item dashboard-stat">
+                            <div class="card-content">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h2 class="card-title font-size-40">120</h2>
+                                        <p class="card-sub font-size-18 line-height-24">Users</p>
+                                    </div>
+                                    <div class="col-auto font-size-60">
+                                        <i class="la la-bookmark text-warning"></i>
+                                    </div>
+                                </div><!-- end row -->
+                            </div><!-- end card-content -->
+                        </div><!-- end card-item -->
+                    </div><!-- end col-lg-3 -->
+                    
+                    <div class="col-lg-12">
+                        <div class="block-card dashboard-card mb-4 px-0">
+                            <div class="block-card-header d-flex flex-wrap align-items-center justify-content-between px-4 border-bottom-0 pb-0">
+                                <h2 class="widget-title pb-0">Data</h2>
+                            </div>
+                            <div class="block-card-body">
+                                <div class="my-table table-responsive">
+                                    <table class="table align-items-center table-flush mb-0">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Item</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#" class="order-id">RA0449</a></td>
+                                                <td>Udin Wayang</td>
+                                                <td>Nasi Padang</td>
+                                                <td>20/02/2020</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td><a href="invoice.html" class="btn btn-sm theme-btn-primary">Invoice</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" class="order-id">RA5324</a></td>
+                                                <td>Jaenab Bajigur</td>
+                                                <td>Gundam 90' Edition</td>
+                                                <td>20/02/2020</td>
+                                                <td><span class="badge badge-warning text-white">Shipping</span></td>
+                                                <td><a href="invoice.html" class="btn btn-sm theme-btn-primary">Invoice</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" class="order-id">RA8568</a></td>
+                                                <td>Rivat Mahesa</td>
+                                                <td>Oblong T-Shirt</td>
+                                                <td>20/02/2020</td>
+                                                <td><span class="badge badge-danger">Unpaid</span></td>
+                                                <td><a href="invoice.html" class="btn btn-sm theme-btn-primary">Invoice</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" class="order-id">RA1453</a></td>
+                                                <td>Indri Junanda</td>
+                                                <td>Hat Rounded</td>
+                                                <td>20/02/2020</td>
+                                                <td><span class="badge badge-info">Processing</span></td>
+                                                <td><a href="invoice.html" class="btn btn-sm theme-btn-primary">Invoice</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" class="order-id">RA1998</a></td>
+                                                <td>Udin Cilok</td>
+                                                <td>Baby Powder</td>
+                                                <td>20/02/2020</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td><a href="invoice.html" class="btn btn-sm theme-btn-primary">Invoice</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><!-- end block-card-body -->
+                        </div><!-- end block-card -->
+                    </div><!-- end col-lg-7 -->
+                    
+                </div><!-- end row -->
+            </div><!-- end dashboard-inner-body-container -->
+        </div><!-- end dashboard-inner-body -->
+        <div class="dashboard-footer bg-white">
+            <div class="container-fluid">
+                <div class="copy-right d-flex align-items-center justify-content-between">
+                    <p class="copy__desc">
+                        &copy; Copyright DEWS <script> document.write(new Date().getFullYear()); </script>
+                    </p>
+                    <ul class="list-items term-list text-right">
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- end dashboard-body -->
+</section>
+<!-- ================================
+    START DASHBOARD AREA
+================================= -->
