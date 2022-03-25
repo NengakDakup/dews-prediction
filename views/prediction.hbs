@@ -18,7 +18,7 @@
                 <div class="hero-heading text-center">
                     <div class="section-heading">
                         <h2 class="sec__title cd-headline slide">
-                           Prediction For {{state}}
+                           Prediction For {{state}} State
                         </h2>
                         
                     </div>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group mb-0">
                                 
-                                <input type="number" min="1999" max="2030" class="form-control mt-3 year" placeholder="Input The Year You want to predict for">
+                                <input type="number" min="" max="2030" class="form-control mt-3 year" placeholder="Input The Year You want to predict for">
                             </div>
                             <div class="form-group mb-0 mt-3">
                                 <a href="#" class="theme-btn gradient-btn shadow-none add-listing-btn-hide predict-btn">
@@ -61,7 +61,6 @@
 <script>
     let btn = document.querySelector('.predict-btn');
     btn.addEventListener('click', () => {
-        btn.innerText = 'Loading...';
         let year = document.querySelector('.year').value;
         let state = "{{state}}";
         let lga = document.querySelector("#lga").value;
@@ -70,12 +69,18 @@
             return alert("Please Select An LGA")
         }
 
+        let currentYear = new Date().getFullYear();
+        let maxYear = currentYear+1;
+        let minYear = currentYear-1;
 
         if(!year){
             return alert("Please Enter a Valid Year");
-        } else if(year > 2030){
-            return alert("Please Enter a Year Not Greater Than 2030");
+        } else if(year > maxYear){
+            return alert(`Please Enter a Year Not Greater Than ${maxYear}`);
+        } else if(year < minYear){
+            return alert(`Please Enter a Year Not Less Than ${minYear}`);
         } else {
+            btn.innerText = 'Loading...';
             let data = {
                 year: year * 1,
                 state: state.toUpperCase(),
@@ -93,10 +98,21 @@
             }).then(data => {
                 let modal_body = document.querySelector('.modal-body.pred');
                 modal_body.innerHTML = "";
+                modal_body.innerHTML += `<p><strong style="color: #111;">STATE : </strong><span class="state_res">${state.toString().toUpperCase()}</span></p>`;
+                modal_body.innerHTML += `<p><strong style="color: #111;">LGA : </strong><span class="state_res">${lga.toString().toUpperCase()}</span></p>`;
+                
+                const colorMap = new Map();
+                colorMap.set('NO DROUGHT', 'green')
+                colorMap.set('MILD DROUGHT', 'yellow')
+                colorMap.set('MODERATE DROUGHT', 'pink')
+                colorMap.set('SEVERE DROUGHT', '#641321')
+                colorMap.set('SEVERE DROUGHT', 'red')
+
                 const keys = Object.keys(data);
                 
                 keys.forEach((key, index) => {
-                    let el = `<p><strong style="color: #111;">${key.toString().toUpperCase()} : </strong><span class="state_res">${data[key].toString().toUpperCase()}</span></p>`;
+                    if(key.toString() === 'ocean_temperature' || key.toString() === 'climate_direction') return;
+                    let el = `<p><strong style="color: #111;">${key.toString().toUpperCase().replace('SPEI_','')} : </strong><span class="state_res" style="padding: 2px 2px; background-color: ${colorMap.get(data[key].toString().toUpperCase())};">${data[key].toString().toUpperCase()}</span></p>`;
                     modal_body.innerHTML += el;
                 });
 
