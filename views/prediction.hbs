@@ -111,9 +111,14 @@
                 const keys = Object.keys(data);
                 
                 keys.forEach((key, index) => {
-                    if(key.toString() === 'ocean_temperature' || key.toString() === 'climate_direction') return;
-                    let el = `<p><strong style="color: #111;">${key.toString().toUpperCase().replace('SPEI_','')} : </strong><span class="state_res" style="padding: 2px 2px; background-color: ${colorMap.get(data[key].toString().toUpperCase())};">${data[key].toString().toUpperCase()}</span></p>`;
-                    modal_body.innerHTML += el;
+                    if(key.toString() === 'ocean_temperature' || key.toString() === 'climate_direction' || key.toString() === 'region') return;
+                    if(key.toString() === 'drought_index'){
+                        let el = `<p><strong style="color: #111;">${key.toString().toUpperCase()} FOR ${data.region.toString().toUpperCase()} : </strong><span class="state_res" style="padding: 2px 2px; background-color: ${colorMap.get(data[key].toString().toUpperCase())};">${data[key].toString().toUpperCase()}</span></p>`;
+                        modal_body.innerHTML += el;
+                    } else {
+                        let el = `<p><strong style="color: #111;">${key.toString().toUpperCase().replace('SPEI_','')} : </strong><span class="state_res" style="padding: 2px 2px; background-color: ${colorMap.get(data[key].toString().toUpperCase())};">${data[key].toString().toUpperCase()}</span></p>`;
+                        modal_body.innerHTML += el;
+                    }
                 });
 
                 
