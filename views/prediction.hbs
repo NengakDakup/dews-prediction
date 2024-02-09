@@ -23,26 +23,35 @@
                         
                     </div>
                     <div class="section-body text-center">
-                        <form action="#" class="form-box ">
+                        
                             <div class="form-group mb-0">
                                 
-                                <select class="form-control" id="lga" aria-placeholder="Select the LGA">
-                                    <option name="select" default="true" value="select">Select An LGA</option>
-                                    {{#eachIndex  list}}
-                                        <option name="{{item}}">{{item}}</option>
-                                    {{/eachIndex }}
+                                <select class="form-control" id="month" aria-placeholder="Select the Month">
+                                    <option name="select" default="true" value="select">Select A Month</option>
+                                    <option name="January">January</option>
+                                    <option name="February">February</option>
+                                    <option name="March">March</option>
+                                    <option name="April">April</option>
+                                    <option name="May">May</option>
+                                    <option name="June">June</option>
+                                    <option name="July">July</option>
+                                    <option name="August">August</option>
+                                    <option name="September">September</option>
+                                    <option name="October">October</option>
+                                    <option name="November">November</option>
+                                    <option name="December">December</option>
                                 </select>                             
                             </div>
                             <div class="form-group mb-0">
                                 
-                                <input type="number" min="" max="2030" class="form-control mt-3 year" placeholder="Input The Year You want to predict for">
+                                <input type="number" min="2023" max="2026" class="form-control mt-3 year" placeholder="Input The Year You want to predict for">
                             </div>
                             <div class="form-group mb-0 mt-3">
                                 <a href="#" class="theme-btn gradient-btn shadow-none add-listing-btn-hide predict-btn">
                                 <i class="la la-plus mr-2"></i>Run Prediction
                             </a>
                             </div>
-                        </form> 
+                       
                     </div>
                 </div><!-- end hero-heading -->
             </div><!-- end col-lg-12 -->
@@ -60,13 +69,28 @@
 
 <script>
     let btn = document.querySelector('.predict-btn');
-    btn.addEventListener('click', () => {
+    let months = new Map();
+    months.set("January", 1)
+    months.set("February", 2)
+    months.set("March", 3)
+    months.set("April", 4)
+    months.set("May", 5)
+    months.set("June", 6)
+    months.set("July", 7)
+    months.set("August", 8)
+    months.set("September", 9)
+    months.set("October", 10)
+    months.set("November", 11)
+    months.set("December", 12)
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault()
         let year = document.querySelector('.year').value;
         let state = "{{state}}";
-        let lga = document.querySelector("#lga").value;
+        let month = document.querySelector("#month").value;
 
-        if(lga === "select" || !lga){
-            return alert("Please Select An LGA")
+        if(month === "select" || !month){
+            return alert("Please Select A Month")
         }
 
         let currentYear = new Date().getFullYear();
@@ -83,12 +107,13 @@
             btn.innerText = 'Loading...';
             let data = {
                 year: year * 1,
-                state: state.toUpperCase(),
-                lga: lga
+                month: months.get(month)
             };
 
-            fetch("https://dewsapp.onrender.com/api/v1/dews/predict", {
-                method: "POST", 
+            console.log(data)
+
+            fetch("https://dewsapp.onrender.com/api/v1/dews/model/predict", {
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -99,8 +124,7 @@
                 let modal_body = document.querySelector('.modal-body.pred');
                 modal_body.innerHTML = "";
                 modal_body.innerHTML += `<p><strong style="color: #111;">STATE : </strong><span class="state_res">${state.toString().toUpperCase()}</span></p>`;
-                modal_body.innerHTML += `<p><strong style="color: #111;">LGA : </strong><span class="state_res">${lga.toString().toUpperCase()}</span></p>`;
-                
+               
                 const colorMap = new Map();
                 colorMap.set('NO DROUGHT', 'green')
                 colorMap.set('MILD DROUGHT', 'yellow')
@@ -110,16 +134,7 @@
 
                 const keys = Object.keys(data);
                 
-                keys.forEach((key, index) => {
-                    if(key.toString() === 'ocean_temperature' || key.toString() === 'climate_direction' || key.toString() === 'region') return;
-                    if(key.toString() === 'drought_index'){
-                        let el = `<p><strong style="color: #111;">${key.toString().toUpperCase()} FOR ${data.region.toString().toUpperCase()} : </strong><span class="state_res" style="padding: 2px 2px; background-color: ${colorMap.get(data[key].toString().toUpperCase())};">${data[key].toString().toUpperCase()}</span></p>`;
-                        modal_body.innerHTML += el;
-                    } else {
-                        let el = `<p><strong style="color: #111;">${key.toString().toUpperCase().replace('SPEI_','')} : </strong><span class="state_res" style="padding: 2px 2px; background-color: ${colorMap.get(data[key].toString().toUpperCase())};">${data[key].toString().toUpperCase()}</span></p>`;
-                        modal_body.innerHTML += el;
-                    }
-                });
+                
 
                 
                 
