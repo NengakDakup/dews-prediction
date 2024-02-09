@@ -112,8 +112,9 @@
 
             console.log(data)
 
-            fetch("https://dewsapp.onrender.com/api/v1/dews/model/predict", {
+            fetch("https://dewsapp.onrender.com/api/v1/dews/model/predict/", {
                 method: "POST",
+                redirect: 'follow',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -124,6 +125,11 @@
                 let modal_body = document.querySelector('.modal-body.pred');
                 modal_body.innerHTML = "";
                 modal_body.innerHTML += `<p><strong style="color: #111;">STATE : </strong><span class="state_res">${state.toString().toUpperCase()}</span></p>`;
+                modal_body.innerHTML += `<p><strong style="color: #111;">YEAR : </strong><span class="state_res">${year.toString().toUpperCase()}</span></p>`;
+                modal_body.innerHTML += `<p><strong style="color: #111;">MONTH : </strong><span class="state_res">${month.toString().toUpperCase()}</span></p>`;
+                modal_body.innerHTML += `<p><strong style="color: #111;">SPEI : </strong><span class="state_res">${data.spei.toString().toUpperCase()}</span></p>`;
+                modal_body.innerHTML += `<p><strong style="color: #111;">DROUGHT INDEX : </strong><span class="state_res">${data.drought_index.toString().toUpperCase()}</span></p>`;
+                
                
                 const colorMap = new Map();
                 colorMap.set('NO DROUGHT', 'green')
